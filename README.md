@@ -9,8 +9,8 @@ SpringBoot原生返回的异常json数据比较多，有两种自定义的方式
 
 ### 区别
 
-1. @ControllerAdvice主要处理的就是controller层的错误信息，而没有进入controller层的错误@ControllerAdvice是无法处理的。
-2. BasicErrorController这个类就是用来捕获程序的所有错误。
+1. BasicErrorController用来捕获程序的所有错误。属于SpringBoot的特性。
+2. @ControllerAdvice主要处理的就是controller层的错误信息，而没有进入controller层的错误@ControllerAdvice是无法处理的。而且@ControllerAdvice是SpringMVC的特性。
 
 ```yml
 spring:
