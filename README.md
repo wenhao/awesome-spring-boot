@@ -76,3 +76,15 @@ public class BeanValidationConfig {
     }
 }
 ```
+
+### 跨域资源共享
+
+```yml
+endpoints:
+  cors:
+    allow-credentials: true
+    allowed-headers: *
+    allowed-methods: *
+    allowed-origins: *
+    max-age: 3600
+```
