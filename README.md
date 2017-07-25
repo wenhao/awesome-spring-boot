@@ -7,6 +7,19 @@ SpringBoot原生返回的异常json数据比较多，有两种自定义的方式
 * 实现ErrorController接口，会自动替换Spring自带的BasicErrorController。
 * 使用@ControllerAdvice，然后使用@ExceptionHandler捕获MethodArgumentNotValidException。
 
+### 区别
+
+1. @ControllerAdvice主要处理的就是controller层的错误信息，而没有进入controller层的错误@ControllerAdvice是无法处理的。
+2. BasicErrorController这个类就是用来捕获程序的所有错误。
+
+```yml
+spring:
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
+```
+
 ```java
 @RestController
 @RequestMapping("${server.error.path:${error.path:/error}}")
