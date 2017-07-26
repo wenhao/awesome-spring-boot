@@ -79,12 +79,20 @@ public class BeanValidationConfig {
 
 ### 跨域资源共享
 
-```yml
-endpoints:
-  cors:
-    allow-credentials: true
-    allowed-headers: *
-    allowed-methods: *
-    allowed-origins: *
-    max-age: 3600
+```java
+@Bean
+public WebMvcConfigurer corsConfigurer() {
+
+    return new WebMvcConfigurerAdapter() {
+        @Override
+        public void addCorsMappings(CorsRegistry registry) {
+            registry.addMapping("/api/*")
+                    .allowedOrigins("*")
+                    .allowedHeaders("*")
+                    .allowedMethods("*")
+                    .allowCredentials(true)
+                    .maxAge(3600);
+        }
+    };
+}
 ```
