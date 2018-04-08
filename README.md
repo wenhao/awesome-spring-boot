@@ -1,6 +1,6 @@
 # awesome-spring-boot
 
-1. 异常处理
+1. Custom Error Handling
 2. CORS
 
 
