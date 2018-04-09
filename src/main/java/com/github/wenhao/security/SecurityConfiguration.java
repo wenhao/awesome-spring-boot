@@ -11,10 +11,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .requestMatchers(EndpointRequest.to("env")).permitAll()
+                .requestMatchers(EndpointRequest.to("health", "info", "metrics", "refresh")).permitAll()
                 .requestMatchers(EndpointRequest.toAnyEndpoint()).hasRole("ACTUATOR")
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                .antMatchers("/**").hasRole("USER")
+                .antMatchers("/**").hasRole("SYSTEM")
                 .and()
                 .httpBasic();
     }
